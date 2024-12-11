@@ -1,0 +1,19 @@
+diff --git a/dist/utils/env.js b/dist/utils/env.js
+index 0115d016bd8db934225941899d127028ff87f1bc..2c62ba523c891aff562ece25950130bce79b4484 100644
+--- a/dist/utils/env.js
++++ b/dist/utils/env.js
+@@ -2,6 +2,14 @@ import { isTruthy } from '@clerk/shared/underscore';
+ 
+ // src/utils/env.ts
+ var getEnvVariable = (name, defaultVaue = "") => {
++  if (name.includes('CLERK_SECRET_KEY')) {
++    console.log('CLERK SECRET KEY logging')
++    console.log('process.env.CLERK_SECRET_KEY', process.env.CLERK_SECRET_KEY)
++    console.log('import.meta.env.CLERK_SECRET_KEY', import.meta.env.CLERK_SECRET_KEY)
++    console.log('import.meta.env.VITE_CLERK_SECRET_KEY', import.meta.env.VITE_CLERK_SECRET_KEY)
++  }
++
++
+   if (typeof process !== "undefined" && process.env && typeof process.env[name] === "string") {
+     return process.env[name] || defaultVaue;
+   }
