@@ -6,7 +6,7 @@ settings:
 
 patchedDependencies:
   '@clerk/tanstack-start@0.8.0':
-    hash: judxpsngeypkye25q2zec3qj3q
+    hash: 7hhv7jdsurm67dkonbtdirbptm
     path: patches/@clerk__tanstack-start@0.8.0.patch
 
 importers:
@@ -15,7 +15,7 @@ importers:
     dependencies:
       '@clerk/tanstack-start':
         specifier: ^0.8.0
-        version: 0.8.0(patch_hash=judxpsngeypkye25q2zec3qj3q)(@tanstack/react-router@1.87.9(@tanstack/router-generator@1.87.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/start@1.87.9(@types/node@22.9.1)(ioredis@5.4.1)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(tsx@4.19.2)(typescript@5.6.3)(vite@6.0.3(@types/node@22.9.1)(jiti@2.4.0)(terser@5.36.0)(tsx@4.19.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 0.8.0(patch_hash=7hhv7jdsurm67dkonbtdirbptm)(@tanstack/react-router@1.87.9(@tanstack/router-generator@1.87.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/start@1.87.9(@types/node@22.9.1)(ioredis@5.4.1)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(tsx@4.19.2)(typescript@5.6.3)(vite@6.0.3(@types/node@22.9.1)(jiti@2.4.0)(terser@5.36.0)(tsx@4.19.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@tanstack/react-router':
         specifier: ^1.87.9
         version: 1.87.9(@tanstack/router-generator@1.87.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -3265,7 +3265,7 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
-  '@clerk/tanstack-start@0.8.0(patch_hash=judxpsngeypkye25q2zec3qj3q)(@tanstack/react-router@1.87.9(@tanstack/router-generator@1.87.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/start@1.87.9(@types/node@22.9.1)(ioredis@5.4.1)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(tsx@4.19.2)(typescript@5.6.3)(vite@6.0.3(@types/node@22.9.1)(jiti@2.4.0)(terser@5.36.0)(tsx@4.19.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@clerk/tanstack-start@0.8.0(patch_hash=7hhv7jdsurm67dkonbtdirbptm)(@tanstack/react-router@1.87.9(@tanstack/router-generator@1.87.7)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(@tanstack/start@1.87.9(@types/node@22.9.1)(ioredis@5.4.1)(jiti@2.4.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(terser@5.36.0)(tsx@4.19.2)(typescript@5.6.3)(vite@6.0.3(@types/node@22.9.1)(jiti@2.4.0)(terser@5.36.0)(tsx@4.19.2)))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@clerk/backend': 1.21.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@clerk/clerk-react': 5.20.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

@@ -23,3 +23,24 @@ index 398aeeaa862b6b019d124b29ffa5c776069381ed..d756428139a46f4c72f28aec730f2c07
          const requestState = await authenticateRequest(request, loadedOptions);
          const clerkInitialState = getResponseClerkState(requestState, loadedOptions);
          router.update({
+diff --git a/dist/utils/env.js b/dist/utils/env.js
+index 0115d016bd8db934225941899d127028ff87f1bc..bbfa07c5fdf5844b81f112bdc2546629d5770fa6 100644
+--- a/dist/utils/env.js
++++ b/dist/utils/env.js
+@@ -1,4 +1,5 @@
+ import { isTruthy } from '@clerk/shared/underscore';
++// import { getContext } from 'vinxi/http';
+ 
+ // src/utils/env.ts
+ var getEnvVariable = (name, defaultVaue = "") => {
+@@ -8,6 +9,10 @@ var getEnvVariable = (name, defaultVaue = "") => {
+   if (typeof import.meta !== "undefined" && import.meta.env && typeof import.meta.env[name] === "string") {
+     return import.meta.env[name];
+   }
++  // This will not work here as getContext need access to event object via AsyncLocalStorage.
++  // if (getContext('cloudflare')) {
++  //   return getContext('cloudflare').env[name]
++  // }
+   return defaultVaue;
+ };
+ var getPublicEnvVariables = () => {
