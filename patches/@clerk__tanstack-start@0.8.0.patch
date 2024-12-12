@@ -1,19 +1,25 @@
-diff --git a/dist/utils/env.js b/dist/utils/env.js
-index 0115d016bd8db934225941899d127028ff87f1bc..2c62ba523c891aff562ece25950130bce79b4484 100644
---- a/dist/utils/env.js
-+++ b/dist/utils/env.js
-@@ -2,6 +2,14 @@ import { isTruthy } from '@clerk/shared/underscore';
+diff --git a/dist/server/middlewareHandler.js b/dist/server/middlewareHandler.js
+index 398aeeaa862b6b019d124b29ffa5c776069381ed..d756428139a46f4c72f28aec730f2c07074f6748 100644
+--- a/dist/server/middlewareHandler.js
++++ b/dist/server/middlewareHandler.js
+@@ -1,13 +1,19 @@
+ import { authenticateRequest } from './authenticateRequest.js';
+ import { loadOptions } from './loadOptions.js';
+ import { getResponseClerkState } from './utils/index.js';
++import { getContext } from 'vinxi/http';
  
- // src/utils/env.ts
- var getEnvVariable = (name, defaultVaue = "") => {
-+  if (name.includes('CLERK_SECRET_KEY')) {
-+    console.log('CLERK SECRET KEY logging')
-+    console.log('process.env.CLERK_SECRET_KEY', process.env.CLERK_SECRET_KEY)
-+    console.log('import.meta.env.CLERK_SECRET_KEY', import.meta.env.CLERK_SECRET_KEY)
-+    console.log('import.meta.env.VITE_CLERK_SECRET_KEY', import.meta.env.VITE_CLERK_SECRET_KEY)
-+  }
-+
-+
-   if (typeof process !== "undefined" && process.env && typeof process.env[name] === "string") {
-     return process.env[name] || defaultVaue;
-   }
+ // src/server/middlewareHandler.ts
+ function createClerkHandler(eventHandler, clerkOptions = {}) {
+   return (cb) => {
+     return eventHandler(async ({ request, router, responseHeaders }) => {
+       try {
+-        const loadedOptions = loadOptions(request, clerkOptions);
++        const cloudflareCtx = getContext('cloudflare');
++        const loadedOptions = loadOptions(request, {
++          ...clerkOptions,
++          secretKey: cloudflareCtx?.env?.CLERK_SECRET_KEY ?? clerkOptions.secretKey,
++          publishableKey: cloudflareCtx?.env?.CLERK_PUBLISHABLE_KEY ?? clerkOptions.publishableKey,
++        });
+         const requestState = await authenticateRequest(request, loadedOptions);
+         const clerkInitialState = getResponseClerkState(requestState, loadedOptions);
+         router.update({

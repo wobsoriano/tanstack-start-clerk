@@ -9,7 +9,7 @@
     "build": "vinxi build",
     "start": "vinxi start",
     "format": "prettier -w .",
-    "preview": "$npm_execpath build && wrangler pages dev",
+    "preview": "$npm_execpath build && wrangler pages dev --env .env",
     "deploy": "$npm_execpath build && wrangler deploy"
   },
   "keywords": [],
@@ -30,8 +30,7 @@
     "@vitejs/plugin-react": "^4.3.3",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3",
-    "vite-tsconfig-paths": "^5.1.4",
-    "wrangler": "^3.89.0"
+    "wrangler": "^3.95.0"
   },
   "packageManager": "pnpm@9.14.2+sha512.6e2baf77d06b9362294152c851c4f278ede37ab1eba3a55fda317a4a17b209f4dbb973fb250a77abc463a341fcb1f17f17cfa24091c4eb319cda0d9b84278387",
   "pnpm": {
